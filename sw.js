@@ -1,7 +1,7 @@
 /* GENIUS ∞ service worker — offline always, fresh on first reload.
    Navigations are network-first (so updates land immediately when online,
    cache serves when offline); hashed assets are cache-first (immutable). */
-const CACHE = 'cre8-v1'
+const CACHE = 'ibrand-v1'
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './index.html', './manual.html'])).then(() => self.skipWaiting()))
 })
