@@ -14,6 +14,13 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <meta name="theme-color" content="#eceef2" />
+  <script>
+  /* StarHub first-party analytics — anonymous pageview beacon (no cookies, no PII).
+     Collector: squarebiz-api worker /api/track (KV, 120-day TTL). Site-tagged. */
+  (function(){try{var K='shx.vid',v;try{v=localStorage.getItem(K)||'';if(!v){v='v_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,10);localStorage.setItem(K,v);}}catch(e){v='anon';}
+  var send=function(){try{fetch('https://squarebiz-api.starhub-x.workers.dev/api/track',{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({event:'pageview',vid:v,ref:document.referrer||null,props:{site:'ibrand',path:location.pathname}}),keepalive:true}).catch(function(){});}catch(e){}};
+  send();var p=history.pushState;history.pushState=function(){p.apply(this,arguments);send();};addEventListener('popstate',send);}catch(e){}})();
+  </script>
   <script type="module" crossorigin src="./assets/index-CylzRs6e.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Cz-BVpgl.css">
 </head>
